@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Communication with Unmanned Aerial Vehicles (Drones)</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>Vilnius Gediminas Technical University</h1>
+            <h2>Professor: Arturas</h2>
+            <h3>Submitted by: Vaibhav</h3>
+        </div>
+    </header>
+
+    <!-- 📄 Table of Contents for print -->
+    <div class="print-toc">
+        <h2>Table of Contents</h2>
+        <ol>
+            <li><a href="#abstract">Abstract</a></li>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#uav-overview">Overview of UAVs</a></li>
+            <li><a href="#communication-tech">Communication Technologies</a></li>
+            <li><a href="#ground-uav">Communication Architecture</a></li>
+            <li><a href="#network-topologies">Design Considerations for UAV Networks</a></li>
+            <li><a href="#security">Security & Encryption</a></li>
+            <li><a href="#challenges">Challenges and Limitations</a></li>
+            <li><a href="#applications">Applications in Civil & Military Fields</a></li>
+            <li><a href="#future">Future Directions</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#references">References</a></li>
+        </ol>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <h2>Contents</h2>
+            <nav>
+                <ul>
+                    <li><a href="#abstract">Abstract</a></li>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#uav-overview">Overview of UAVs</a></li>
+                    <li><a href="#communication-tech">Communication Technologies</a></li>
+                    <li><a href="#ground-uav">Communication Architecture</a></li>
+                    <li><a href="#network-topologies">Design Considerations for UAV Networks</a></li>
+                    <li><a href="#security">Security & Encryption</a></li>
+                    <li><a href="#challenges">Challenges and Limitations</a></li>
+                    <li><a href="#applications">Applications in Civil & Military Fields</a></li>
+                    <li><a href="#future">Future Directions</a></li>
+                    <li><a href="#conclusion">Conclusion</a></li>
+                    <li><a href="#references">References</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content">
+            <section id="abstract">
+                <h1>Abstract</h1>
+                <p>A brief summary of your entire essay here. Cover the importance of communication in UAV systems, the
+                    technologies involved, and future prospects.</p>
+            </section>
+
+            <section id="introduction">
+                <h1>Introduction</h1>
+                <p>In our rapidly evolving world, the dynamics of flights have change drastically, from just a concept
+                    to the first ever successful flight by Orville Wright, one of the Wright brothers to first ever
+                    passenger plane and then fighter jets. Where passenger planes helps millinos of passengers to go
+                    from one place to another, Military fighter jets plays a vital role in wars and close combat
+                    dockfight.
+                    <br>
+                    Later after losing so many lives in world war, people started thinking about the planes where we
+                    don't need a pilot physically within the plane, it is how Unmanned Aerial Vehicles (UAVs) were
+                    developed. UAVs are the most advanced technology in aviation sector. They are
+                    used for various purposes like surveillance, and even combat missions. You can complete any mission
+                    while sitting in your own country. As you are not physically present in the plane, you can
+                    control the UAVs from a distance. This is possible because of the communication between UAVs and the
+                    ground stations.
+                    The UAVs incorporate various communication technologies that enable them to communicate with ground
+                    stations. They have radio frequency, satellite, cellular (4G/5G), Wi-Fi, LoRa, and other numerous
+                    technologies. Communication of UAVs to ground stations is essential for their functioning. This
+                    essay will discuss the different aspects of communication with UAVs, such as technologies,
+                    challenges, applications, and future directions. <span class="ref-btn" data-ref="ref1"
+                        onclick="openRefSidebar('ref1')">[1]</span>
+                </p>
+                </p>
+            </section>
+
+            <section id="uav-overview">
+                <h1>Overview of UAVs</h1>
+                <p>Explain what UAVs are, types (fixed-wing, rotary, hybrid), and their evolution. Include global usage
+                    trends.</p>
+            </section>
+
+            <section id="communication-tech">
+                <h1>Communication Technologies</h1>
+                <p>
+                    Communication with UAVs are important as there is no pilot physically present in the UAV. So, entire
+                    communication is done wirelessly. The UAVs are controlled from distance. Hence, then range of
+                    communication should be large enough to send and receive data. To make sure proper communication,
+                    UAVs are equipped with various technologies.
+                </p>
+                <p>
+                    <br>
+                    The most common communication technologies used in UAVs are:
+                <ul class="tech-list">
+                    <li>Radio Frequency (RF)</li>
+                    <li>Satellite Communication</li>
+                    <li>Cellular Networks (4G/5G)</li>
+                    <li>Wi-Fi</li>
+                    <li>LoRa (Long Range)</li>
+                    <li>Bluetooth</li>
+                    <li>Infrared</li>
+                    <li>Visible Light Communication (VLC)</li>
+                    <li>Mesh Networking</li>
+                    <li>Ad-hoc Networks</li>
+                    <li>Ultra-Wideband (UWB)</li>
+                </ul>
+                <br>
+                </p>
+                <h3>
+                    Basic Networking Architecture
+                </h3>
+                <br>
+                <h4>
+                    Control and Non-Payload Communications Link
+                </h4>
+                <br>
+                <p>
+                    The CNPC links are crucial to ensure that all UAV systems are safely operated. They should be highly
+                    reliable, low-latency, secure two way communications, and must requires low data rate. So that, it
+                    can be used for exchanging safety-critical infomration with other UAVs and also between UAVs ad
+                    ground control stations. There are three main types of CNPC infromation flows:
+                    <br>
+                    <br>
+                <ul class="tech-list">
+                    <li>Command and control from GCS to UAVs</li>
+                    <li>Aircraft status report from UAVs to ground</li>
+                    <li>Sense-and-avoid information among UAVs</li>
+                </ul>
+                <br>
+                </p>
+                <p>
+                    To support critical functions, CNPC links should operate in protected frequency bands. The most
+                    common frequency bands used for CNPC links are: L-band (960-977MHz) and C-band (5030-5091MHz) <span
+                        class="ref-btn" data-ref="ref2" onclick="openRefSidebar('ref2')">[2]</span>. Moreover, though
+                    the direct links between UAVs and GCP are the most common and preferred for delay reasons, secondly,
+                    links via satellite could also be used as backup to make sure if something goes wrong with the
+                    direct link, the UAVs can still be controlled via satellite. Another key aspect fo CNPC links is
+                    superior security. In particular, effective security controls must be applied to avoid so-called
+                    ghost control, a very risky scenario under
+                    which the UAVs are taken over by unauthorised actors via spoofed navigation or control signals. In
+                    this regard, strong
+                    authentication protocols, perhaps supported by the advancing physical layer security techniques,
+                    should be employed on
+                    CNPC connections.
+                </p>
+                <br>
+                <h4>
+                    Data Link
+                </h4>
+                <br>
+                <p>
+                    The data links are used to support mission-related communications for ground stations, which depends
+                    on different scenarios, may include mobile terminals, geteway nodes, wireless sensors, and so on.
+                    UAVs data links need to support these communication modes:
+                    <br>
+                    <br>
+                <ul class="tech-list">
+                    <li>Direct mobile-UAV communication as for BS offloading or during complete BS malfunction</li>
+                    <li>UAV-BS and UAV-gateway wireless backhaul</li>
+                    <li>UAV-UAV wireless backhaul</li>
+                </ul>
+                </p>
+                <br>
+                <p>
+                    The capacity demand of these data links depends significantly on the applications, which can range
+                    from a few kilobits
+                    per second for UAV-sensor links to dozens of gigabits per second for UAV-gateway wireless backhaul.
+                    Compared with CNPC
+                    links, the data links usually have greater tolerance in latency and security demands. In the
+                    spectrum space, the UAV
+                    data links could reuse the previously assigned band for the respective applications to be supported,
+                    (e.g., the LTE band
+                    in supporting cellular coverage), or new special spectrum would be available for performance
+                    optimization (e.g., using
+                    the millimeter-wave, mmWave, band for high-capacity UAV-UAV wireless backhaul) <span class="ref-btn"
+                        data-ref="ref3" onclick="openRefSidebar('ref3')">[3]</span>.
+                </p>
+            </section>
+
+            <section id="ground-uav">
+                <h1>Communication Architecture</h1>
+                <p>
+                    A communication architecture specifies how information flows between the ground crew and a UAV or
+                    between UAVs. In this
+                    section we introduce four communication architectures for networking UAVs. <span class="ref-btn" data-ref="ref4" onclick="openRefSidebar('ref4')">[4]</span>
+                </p>
+                <br>
+                <h3>Centralized Communication</h3>
+                <br>
+                <p>
+                    A central UAV communications topology is illustrated in Fig. 1 with a central node (i.e., the ground
+                    station), to which
+                    all the UAVs are linked. It is one of the most common network topologies. In this network, each UAV
+                    sends and receives
+                    command and control messages directly with the ground station, and UAVs are not directly connected
+                    with one another. The
+                    whole network is rooted at the ground station, and in between two UAVs, messages need to be relayed
+                    via the ground
+                    station. Since all UAVs are directly connected with the ground station, there can be little delay in
+                    information when
+                    command and control data are shared between the ground personnel and an UAV. But data information
+                    exchanged between two
+                    UAVs will experience a relatively longer delay since the data must be transmitted through the ground
+                    station. Also,
+                    since long-distance communication tends to be performed between the ground station and UAVs,
+                    high-power radio
+                    transmission gear is required in the UAVs, which will not be cost-effective for medium or small UAVs
+                    due to their size
+                    and payload restrictions. Also, in the centralised UAV communication architecture, the ground
+                    station represents
+                    weakness of the UAV network by having the potential of single-point of failure. I.e., if the ground
+                    station experiences
+                    some problem, the entire UAV network will be impacted. Thus, this communication architecture is not
+                    robust <span class="ref-btn" data-ref="ref4" onclick="openRefSidebar('ref4')">[4]</span>.
+                </p>
+                <br>
+                <figure class="image-block">
+                    <img src="./images/6825193-fig-1-source-large.gif" alt="Descriptive Alt Text">
+                    <figcaption>Centralized UAV Network. Image from - <a
+                            href="https://ieeexplore.ieee.org/abstract/document/6825193">Source</a></figcaption>
+                </figure>
+                <br>
+                <h3>Decentralized Communications</h3>
+                <br>
+                <p>
+                    In decentralized UAV communications, central ground stations are not required. Each UAV can
+                    communicate with each other directly or indirectly without needing Ground station. If information
+                    needs to be send then it will be send through other UAVs. This is a more robust communication
+                    architecture as there is no single point of failure. If one UAV fails, the other UAVs can still
+                    communicate with each other. This architecture is more cost-effective as it does not require
+                    high-power radio transmission gear. However, this architecture has a longer delay in information
+                    exchange as compared to centralized communication. Let's discuss more about 3 types of decentralized
+                    communication architectures:
+                </p>
+                <br>
+                <h3>1. Ad-hoc Communication</h3>
+                <br>
+                <p>
+                    An ad hoc network for a UAV is infrastructureless, with the UAVs relaying data between them. A
+                    gateway UAV offers
+                    connectivity to a ground station using two radios, while the network is connected to it. This setup
+                    offers extended
+                    coverage and enables lightweight, low-cost transceivers. For persistent connectivity, the UAVs must
+                    be moving at
+                    comparable speed and direction, making coordinated missions like surveillance suitable. In bigger
+                    deployments with
+                    varying UAVs, several clusters or layered structures (multi-group or multi-layer networks) are
+                    better suited to handle
+                    communication and less overhead.
+                </p>
+                <br>
+                <figure class="image-block">
+                    <img src="./images/ad-hoc-network.gif" alt="Descriptive Alt Text">
+                    <figcaption>Ad-hoc UAV Network. Image from - <a
+                            href="https://ieeexplore.ieee.org/mediastore/IEEE/content/media/6820092/6824917/6825193/6825193-fig-2-source-small.gif">Source</a>
+                    </figcaption>
+                </figure>
+                <br>
+                <h3>2. Multi-Group UAV Network</h3>
+                <br>
+                <p>
+                    In a multi-group UAV network, UAVs form independent groups and each group builds its own ad hoc
+                    network having a
+                    backbone UAV connected to a ground station. Local communication happens within a group, while
+                    inter-group communication
+                    transpires through their backbone UAVs and the ground station. Such a structure balances centralized
+                    and ad hoc
+                    structures, making it very suitable for extensive missions involving different types of
+                    heterogeneous UAVs. Its
+                    semi-centralized nature could limit overall resilience.
+                </p>
+                <br>
+                <figure class="image-block">
+                    <img src="./images/multi-group.gif" alt="Descriptive Alt Text">
+                    <figcaption>Multi-Group UAV Network. Image from - <a
+                            href="https://ieeexplore.ieee.org/mediastore/IEEE/content/media/6820092/6824917/6825193/6825193-fig-3-source-small.gif">Source</a>
+                    </figcaption>
+                </figure>
+                <br>
+                <h3>3. Multi-Layer UAV Ad Hoc Network</h3>
+                <br>
+                <p>
+                    A multi-layer UAV ad hoc network organizes UAVs into clusters at a lower layer, and their backbone UAVs form an
+                    upper-layer ad hoc network. Unlike the multi-group model, a single backbone UAV is connected to the ground station, and
+                    inter-group communication is directly performed via the upper layer, without involving the ground station. This reduces
+                    load on the ground station and achieves maximum scalability. It is most appropriate for one-to-many UAV operations and
+                    is less susceptible to a single point of failure.
+
+                </p>
+                <br>
+                <figure class="image-block">
+                    <img src="./images/multi-layer.gif" alt="Descriptive Alt Text">
+                    <figcaption>Multi-Layer UAV Ad Hoc Network. Image from - <a
+                            href="https://ieeexplore.ieee.org/mediastore/IEEE/content/media/6820092/6824917/6825193/6825193-fig-4-source-small.gif">Source</a>
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section id="network-topologies">
+                <h1>Design Considerations for UAV Networks</h1>
+                <p>
+                    UAV networks have several important design points because of their unique nature. In this section, we discuss briefly
+                    the nature, mobility models, and architecture of UAV networks. Because of sudden changes, and activities while the
+                    network is operating, UAV networks require high scalability, flexibility, and robust communication protocols <span class="ref-btn" data-ref="ref5" onclick="openRefSidebar('ref5')">[5]</span>.
+                </p>
+                <br>
+                <h3>A. Topology</h3>
+                <br>
+                <p>
+                    UAVs form peer-to-peer connections to maintain coordincation and communication; either single or multi-cluster formations can be be used. 
+                </p>
+                <br>
+                <h3>B. Mobility Models</h3>
+                <br>
+                <p>
+                    Mobility models are essential for efficient UAV communication and are based on the application and UAV size (large,
+                    small, mini). For scheduled missions, UAVs follow regular mobility, whereas autonomous systems require dynamic models.
+                    For collective military operations, RPGMM (e.g., Manhattan grid) is suitable; for flexible routes such as patrolling,
+                    models like random waypoint or Gauss–Markov are used. UAVs are highly mobile (30–460 km/h) in comparison to VANET or
+                    MANET nodes, causing wireless link oscillations and affecting routing performance. Efficient routing and MAC protocols
+                    are hence crucial to maintain connectivity and QoS.
+                </p>
+                <br>
+                <h3>C. Latency</h3>
+                <br>
+                <p>
+                    Disaster monitoring and battlefield operations require ultra-low latency for FANETs. While some latency is inevitable,
+                    it can be minimized by using priority schemes, priority-based routing, and efficient collision and congestion control
+                    protocols. Routing protocol selection is especially crucial in providing QoS. Highly mobile FANET delay can be addressed
+                    by a study proposing an adaptive delay-constrained routing method based on a stochastic model that allows packet
+                    transmission from local information alone.
+                </p>
+            </section>
+
+            <section id="security">
+                <h1>Security & Encryption</h1>
+                <p>Detail encryption techniques, authentication, GPS spoofing protection, jamming threats, and
+                    countermeasures.</p>
+            </section>
+
+            <section id="challenges">
+                <h1>Challenges and Limitations</h1>
+                <p>Discuss issues such as bandwidth constraints, interference, signal loss, regulatory issues, and
+                    real-time data constraints.</p>
+            </section>
+
+            <section id="applications">
+                <h1>Applications in Civil & Military Fields</h1>
+                <p>Give examples of UAV use cases that heavily rely on communication: disaster response, agriculture,
+                    surveillance, and military combat.</p>
+            </section>
+
+            <section id="future">
+                <h1>Future Directions</h1>
+                <p>Discuss future possibilities like AI-driven communication, fully autonomous UAV networks, 6G impact,
+                    edge computing integration, and more.</p>
+            </section>
+
+            <section id="conclusion">
+                <h1>Conclusion</h1>
+                <p>Summarize the key points, reinforce the importance of robust communication systems in UAVs, and
+                    suggest future improvements or research areas.</p>
+            </section>
+
+            <section id="references">
+                <h1>References</h1>
+                <ol class="reference-list">
+                    <li>
+                        <p>
+                            Yong Zeng, Rui Zhang (2016). <em>Wireless communications with unmanned aerial vehicles: opportunities and challenges</em>. IEEE Communicagtions Magazine. Volume: 54 Issue: 5
+                            <a href="https://ieeexplore.ieee.org/abstract/document/7470933"
+                                target="_blank">https://ieeexplore.ieee.org/abstract/document/7470933</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Asif Ali, Awais Khan, (2022) <em>Unmanned aerial vehicles: A review</em>, Cognitive Robotics, Volume 3.
+                            <a href="https://www.sciencedirect.com/science/article/pii/S2667241322000258#sec0006" target="_blank">https://www.sciencedirect.com/science/article/pii/S2667241322000258#sec0006</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Jun Li, Yefeng Zhou. (2013). <em>Communication architectures and protocols for networking unmanned aerial vehicles</em>. | Conferences - 2013 IEEE Globecom Workshops (GC Wkshps) | IEEE Xplore
+                            <a href="https://ieeexplore.ieee.org/abstract/document/6825193" target="_blank">https://ieeexplore.ieee.org/abstract/document/6825193</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Alshammari, M., & Singh, A. (2022). A Review on Drone Communication Topologies. <em>Journal of Wireless
+                                Networks</em>, 28(3), 415–430.
+                            <a href="https://www.example.com/article4" target="_blank">https://www.example.com/article4</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            IEEE Standards Association. (2023). <em>IEEE P1920.1: Aerial Communications Standards</em>.
+                            <a href="https://standards.ieee.org/standard/P1920_1"
+                                target="_blank">https://standards.ieee.org/standard/P1920_1</a>
+                        </p>
+                    </li>
+                </ol>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reference data -->
+    <div id="ref1" style="display: none;">
+        <strong>Author:</strong> John Doe<br><br>
+        <strong>Title:</strong> UAV Communication Technologies<br><br>
+        <strong>Source:</strong> IEEE Transactions on Aerospace and Electronic Systems, 2022
+        <br><br>
+        <strong>Link:</strong> <a
+            href="https://www.sciencedirect.com/science/article/pii/S2667241322000258#bib0015">Reference</a>
+    </div>
+
+    <div id="ref2" style="display: none;">
+        <strong>2.</strong> D. W. Matolak and R. Sun, "Unmanned Aircraft Systems: Air-Ground Channel Characterization
+        for Future Applications", IEEE
+        Vehic. Tech. Mag., vol. 10, no. 2, pp. 79-85, June 2015.<br><br>
+        <strong>Source:</strong> IEEE Transactions on Aerospace and Electronic Systems, 2022
+        <br><br>
+        <strong>Link:</strong> <a href="https://ieeexplore.ieee.org/abstract/document/7470933">Reference</a>
+    </div>
+
+    <div id="ref3" style="display: none;">
+        <strong>3.</strong> T. S. Rappaport, Millimeter Wave Wireless Communications, Prentice Hall, 2014.
+        <br><br>
+        <strong>Source:</strong> IEEE Transactions on Aerospace and Electronic Systems, 2022
+        <br><br>
+        <strong>Link:</strong> <a
+            href="https://scholar.google.com/scholar?as_q=Millimeter+Wave+Wireless+Communications&as_occt=title&hl=en&as_sdt=0%2C31">Reference</a>
+    </div>
+
+    <div id="ref4" style="display: none;">
+        <br><br>
+        <strong>Author:</strong> Jun Li, Yifeng Zhou, Louise Lamont
+        <strong>Source:</strong> IEEE Transactions on Aerospace and Electronic Systems, 2022
+        <br><br>
+        <strong>Link:</strong> <a
+            href="https://ieeexplore.ieee.org/abstract/document/6825193">Reference</a>
+    </div>
+
+    <div id="ref5" style="display: none;">
+        <br><br>
+        <strong>Author:</strong> Sangman Moh
+        <strong>Source:</strong> W. Zafar and B. M. Khan, "Flying ad-hoc networks: Technological and social implications", IEEE Technol. Soc. Mag., vol.
+        35, no. 2, pp. 67-74, Jun. 2016.
+        <br><br>
+        <strong>Link:</strong> <a href="https://ieeexplore.ieee.org/abstract/document/8772093">Reference</a>
+    </div>
+
+
+    <div id="refSidebar" class="ref-sidebar">
+        <button class="close-btn" onclick="closeRefSidebar()">×</button>
+        <div id="refContent"></div>
+    </div>
+
+    <script>
+        function openRefSidebar(refId) {
+            const refContent = document.getElementById(refId);
+            const sidebar = document.getElementById("refSidebar");
+            const displayArea = document.getElementById("refContent");
+
+            if (refContent) {
+                displayArea.innerHTML = refContent.innerHTML;
+                sidebar.classList.add("active");
+            }
+        }
+
+        function closeRefSidebar() {
+            document.getElementById("refSidebar").classList.remove("active");
+        }
+
+        // Optional: Close on outside click
+        window.addEventListener("click", function (e) {
+            const sidebar = document.getElementById("refSidebar");
+            if (sidebar.classList.contains("active") && !sidebar.contains(e.target) && !e.target.hasAttribute('data-ref')) {
+                closeRefSidebar();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  /* display: flex; */
+  background-color: #f9f9f9;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  position: fixed;
+    top: 0;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.sidebar nav ul {
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar nav ul li a {
+  color: #ecf0f1;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.sidebar nav ul li a:hover {
+  color: #1abc9c;
+}
+
+.content {
+  margin-left: 260px;
+  padding: 40px;
+  max-width: 60%;
+  line-height: 1.6;
+}
+
+section {
+  margin-bottom: 60px;
+}
+
+h1 {
+  margin-bottom: 15px;
+  color: #34495e;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    margin-left: 240px;
+}
+
+.header-content h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.header-content h2, .header-content h3 {
+    margin: 5px 0;
+    font-weight: normal;
+}
+
+.header-content h2 {
+    font-size: 1.5em;
+}
+
+.header-content h3 {
+    font-size: 1.2em;
+}
+
+/* Default: Hide print-toc on screen */
+.print-toc {
+  display: none;
+}
+
+/* Show print-toc and hide sidebar during printing */
+@media print {
+  .sidebar {
+    display: none;
+  }
+
+  .content {
+    margin-left: 0 !important;
+    width: 100%;
+  }
+
+  .print-toc {
+    display: block;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
+  }
+
+  .print-toc ol {
+    padding-left: 1.5rem;
+  }
+
+  .print-toc a {
+    color: black;
+    text-decoration: none;
+  }
+
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+}
+
+/* Right Sidebar for References */
+.ref-sidebar {
+  position: fixed;
+  right: -400px;
+  top: 0;
+  width: 350px;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  overflow-y: auto;
+  transition: right 0.3s ease-in-out;
+  z-index: 999;
+}
+
+.ref-sidebar.active {
+  right: 0;
+}
+
+.ref-sidebar .close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  float: right;
+  cursor: pointer;
+}
+
+.ref-sidebar #refContent {
+  margin-top: 30px;
+  font-size: 16px;
+  color: #333;
+}
+
+.tech-list {
+  margin-left: 50px;
+  padding: 0;
+}
+
+.ref-btn {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+.image-block {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.image-block img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.image-block figcaption {
+  margin-top: 10px;
+  font-size: 0.95em;
+  color: #666;
+  font-style: italic;
+}
