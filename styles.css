@@ -98,14 +98,28 @@ header {
 }
 
 /* Show print-toc and hide sidebar during printing */
+@page {
+  size: A4;
+  margin: 2.54cm; /* Standard 1 inch margins */
+}
+
 @media print {
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    color: black;
+  }
+
   .sidebar {
     display: none;
   }
 
   .content {
-    margin-left: 0 !important;
-    width: 100%;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: none;
+    padding: 0;
   }
 
   .print-toc {
@@ -128,7 +142,17 @@ header {
     content: " (" attr(href) ")";
     font-size: 0.8em;
   }
+
+  header, footer {
+    page-break-inside: avoid;
+  }
+
+  section {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
 }
+
 
 /* Right Sidebar for References */
 .ref-sidebar {
